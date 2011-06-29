@@ -448,10 +448,12 @@ NSInteger kSSPersonViewControllerDeleteActionSheetTag = 987;
 		return;
 	}
 	
-	// Delete person
-	ABAddressBookRemoveRecord(self.addressBook, self.displayedPerson, nil);
-	ABAddressBookSave(self.addressBook, nil);
-	[self.navigationController popViewControllerAnimated:YES];	
+	if (buttonIndex == 0) {
+		// Delete person
+		ABAddressBookRemoveRecord(self.addressBook, self.displayedPerson, nil);
+		ABAddressBookSave(self.addressBook, nil);
+		[self.navigationController popViewControllerAnimated:YES];	
+	}
 }
 
 @end
